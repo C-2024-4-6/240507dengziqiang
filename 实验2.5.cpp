@@ -1,21 +1,31 @@
 #include <iostream>
-#include <cctype>
+#include <stdio.h>
 using namespace std;
 int main()
 {
 	char ch;
 	int a = 0, b = 0, c = 0, d = 0;
 	cout << "请输入一行字符" << endl;
-	while (cin.get(ch))
+	ch = getchar();
+	while (ch != '\n')
 	{
-		if (isalpha(ch))
+		if ((ch >= 'a') && (ch <= 'z') || (ch >= 'A') && (ch <= 'Z'))
+		{
 			a++;
-		else if (isspace(ch))
+		}
+		else if (ch == ' ')
+		{
 			b++;
-		else if (isdigit(ch))
+		}
+		else if (ch >= '0' && ch <= '9')
+		{
 			c++;
+		}
 		else
+		{
 			d++;
+		}
+		ch = getchar();
 	}
 	cout << "英文字母个数" << a << endl;
 	cout << "空格个数" << b << endl;
